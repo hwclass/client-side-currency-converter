@@ -1,0 +1,3 @@
+//extensions
+
+Core.extend('$', jQuery);

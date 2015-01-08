@@ -1,0 +1,26 @@
+{
+  "name": "client-side-currency-converter",
+  "version": "0.1.0",
+  "authors": [
+    "hwclass <harderworking.class@gmail.com>"
+  ],
+  "description": "Client Side Currency Converter",
+  "main": "server.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.1.1",
+    "bootstrap": "3.3.1"
+  },
+  "devDependencies": {
+    "jquery": "2.1.1",
+    "bootstrap": "3.3.1"
+  }
+}
