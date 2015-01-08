@@ -6,8 +6,8 @@ var app = express();
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var config = require('./app/config/config')[env];
 app.set('views', config.rootPath + '/app/views');
-app.set('view engine', 'jade');
-// get all data/stuff of the body (POST) parameters
+//app.set('view engine', 'jade');
+//get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json()); // parse application/json 
 app.use(bodyParser.json({
     type: 'application/vnd.api+json'
@@ -23,3 +23,5 @@ require('./app/config/routes')(app); // pass our application into our routes
 // start app ===============================================
 app.listen(config.port);
 console.log('Magic happens on port ' + config.port); // shoutout to the user
+
+// modules =================================================
