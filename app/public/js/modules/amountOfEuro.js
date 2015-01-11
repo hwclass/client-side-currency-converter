@@ -8,7 +8,7 @@
 
       init : function () {
         console.log('amountOfEuro initialized.');
-        this.$amountOfEuro = sandbox.x('$')('amountOfEuro');
+        this.$amountOfEuro = sandbox.x('$')('#amountOfEuro');
         this.addListeners();
       },
 
@@ -17,6 +17,7 @@
       },
 
       onChange : function () {
+        console.log('amountOfEuro input changed.');
         var newValue = this.$amountOfEuro[0].value;
         this.notify(newValue);
       },

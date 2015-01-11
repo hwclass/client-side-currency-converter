@@ -8,7 +8,7 @@
 
       init : function () {
         console.log('amountOfYen initialized.');
-        this.$amountOfYen = sandbox.x('$')('amountOfYen');
+        this.$amountOfYen = sandbox.x('$')('#amountOfYen');
         this.addListeners();
       },
 
@@ -17,6 +17,7 @@
       },
 
       onChange : function () {
+        console.log('amountOfYen input changed.');
         var newValue = this.$amountOfYen[0].value;
         this.notify(newValue);
       },
