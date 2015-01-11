@@ -1,4 +1,4 @@
-//tweetList
+//exchangeList
 
 (function(Core) {
 
