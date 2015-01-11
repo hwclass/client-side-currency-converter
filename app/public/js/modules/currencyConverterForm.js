@@ -8,28 +8,29 @@
       
       init: function() {
         this.$currencyConverterForm = sandbox.x('$')('#currencyConverterForm');
-        this.$amountInput = this.$currencyConverterForm.find('#amount');
-        this.addListeners();
+        this.listen();
       },
 
-      addListeners: function() {
-        this.$currencyConverterForm.on('submit', this.onSubmit.bind(this));
+      listen: function() {
+        sandbox.listen('newDollarInputValue', this.newDollarInputValue, this);
+        sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
+        sandbox.listen('newYenInputValue', this.newYenInputValue, this);
       },
 
-      onSubmit: function(e) {
-        e.preventDefault();
-        var newAmount = this.$amountInput[0].value;
-        this.$amountInput[0].value = '';
-        this.notify(newAmount);
+      newDollarInputValue : function (data) {
+        console.log('newDollarInputValue:', data.value);
       },
 
-      notify: function(newAmount) {
-        sandbox.notify({
-          type: 'newAmount',
-          data: {
-            amount : newAmount
-          }
-        });
+      newEuroInputValue : function (data) {
+        console.log('newEuroInputValue:', data.value);
+      },
+
+      newYenInputValue : function (data) {
+        console.log('newYenInputValue', data.value);
+      },
+
+      getCurrencyConversions : function () {
+
       }
 
     }
