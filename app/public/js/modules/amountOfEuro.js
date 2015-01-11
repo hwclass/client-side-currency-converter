@@ -2,7 +2,7 @@
 
 (function(Core) {
 	
-  Core.register('amountOfEuro', funciton (sandbox) {
+  Core.register('amountOfEuro', function (sandbox) {
 
     return {
 
