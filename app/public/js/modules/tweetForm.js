@@ -6,7 +6,6 @@
       init: function() {
         this.$form = sandbox.x('$')('#tweet-form');
         this.$input = this.$form.find('input');
-
         this.addListeners();
       },
 
@@ -16,10 +15,8 @@
 
       onSubmit: function(e) {
         e.preventDefault();
-
         var newTweet = this.$input[0].value;
         this.$input[0].value = '';
-
         this.notify(newTweet);
       },
 
