@@ -12,9 +12,9 @@
       },
 
       listen: function() {
-        //sandbox.listen('newDollarInputValue', this.newDollarInputValue, this);
-        //sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
-        //sandbox.listen('newYenInputValue', this.newYenInputValue, this);
+        sandbox.listen('newDollarInputValue', this.newDollarInputValue, this);
+        sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
+        sandbox.listen('newYenInputValue', this.newYenInputValue, this);
       },
 
       newDollarInputValue : function (data) {

@@ -34,7 +34,7 @@
         var notifiedData = data.value;
         sandbox.x('$').ajax({
           type: 'GET',
-          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=USD_EUR',
+          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q='+sandbox.x('config').CURRENCY.DOLLAR+'_'+sandbox.x('config').CURRENCY.EURO,
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
@@ -48,7 +48,7 @@
         var notifiedData = data.value;
         sandbox.x('$').ajax({
           type: 'GET',
-          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=JPY_EUR',
+          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q='+sandbox.x('config').CURRENCY.YEN+'_'+sandbox.x('config').CURRENCY.EURO,
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
