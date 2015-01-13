@@ -1,8 +1,11 @@
 'use strict';
 
 /*
-Core.start('tweet-form');
-Core.start('tweet-list');
+Core.start('currencyConverterForm');
+Core.start('exchangeList');
+Core.start('amountOfDollar');
+Core.start('amountOfEuro');
+Core.start('amountOfYen');
 */
 
 Core.startAll();

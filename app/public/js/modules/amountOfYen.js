@@ -1,4 +1,7 @@
-//amountOfYen module
+/*
+ * Module :: amountOfYen.js
+ * Info : Module for the input element of yen currency.
+ */
 
 (function(Core) {
 	

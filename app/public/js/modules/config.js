@@ -1,9 +1,11 @@
 //config
 
-Core.extend('config', {
-	MONEY_EXTENSIONS : {
-		DOLLAR : 'USD',
-		EURO : 'EUR',
-		YEN : 'JPY'
-	}	
-});
+(function(){ 
+  return {
+    CURRENCY : {
+  		DOLLAR : 'USD',
+  		EURO : 'EUR',
+  		YEN : 'JPY'
+  	}
+  }
+})();

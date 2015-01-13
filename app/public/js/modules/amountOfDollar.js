@@ -1,4 +1,7 @@
-//amountOfDollar module
+/*
+ * Module :: amountOfDollar.js
+ * Info : Module for the input element of dollar currency.
+ */
 
 (function(Core) {
 	
