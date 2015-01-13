@@ -31,11 +31,11 @@
         var notifiedData = data.value;
         sandbox.x('$').ajax({
           type: 'GET',
-          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=USD_EUR',
+          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=EUR_USD',
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
-            self.$amountOfDollar[0].value = notifiedData * data.results['USD_EUR'].val;
+            self.$amountOfDollar[0].value = sandbox.x('numeral')(notifiedData * data.results['EUR_USD'].val).format('0,0.00[0]');
           }
         });
       },
@@ -45,11 +45,11 @@
         var notifiedData = data.value;
         sandbox.x('$').ajax({
           type: 'GET',
-          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=USD_JPY',
+          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=JPY_USD',
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
-            self.$amountOfDollar[0].value = notifiedData * data.results['USD_JPY'].val;
+            self.$amountOfDollar[0].value = sandbox.x('numeral')(notifiedData * data.results['JPY_USD'].val).format("0,0.00[0]");
           }
         });
       },
