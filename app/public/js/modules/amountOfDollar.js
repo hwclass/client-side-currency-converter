@@ -7,7 +7,6 @@
     return {
 
       init : function () {
-        console.log('amountOfDollar initialized.');
         this.$amountOfDollar = sandbox.x('$')('#amountOfDollar');
         this.addListeners();
         this.listen();
@@ -23,17 +22,36 @@
       },
 
       onChange : function () {
-        console.log('amountOfDollar input changed.');
         var newValue = this.$amountOfDollar[0].value;
         this.notify(newValue);
       },
 
       newEuroInputValue : function (data) {
-        console.log('newEuroInputValue:', data.value);
+        var self = this;
+        var notifiedData = data.value;
+        sandbox.x('$').ajax({
+          type: 'GET',
+          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=USD_EUR',
+          crossDomain: true,
+          dataType: 'jsonp',
+          success: function(data) {
+            self.$amountOfDollar[0].value = notifiedData * data.results['USD_EUR'].val;
+          }
+        });
       },
 
       newYenInputValue : function (data) {
-        console.log('newYenInputValue', data.value);
+        var self = this;
+        var notifiedData = data.value;
+        sandbox.x('$').ajax({
+          type: 'GET',
+          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=USD_JPY',
+          crossDomain: true,
+          dataType: 'jsonp',
+          success: function(data) {
+            self.$amountOfDollar[0].value = notifiedData * data.results['USD_JPY'].val;
+          }
+        });
       },
 
       notify : function (newValue) {

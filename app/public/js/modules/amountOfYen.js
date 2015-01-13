@@ -7,7 +7,6 @@
     return {
 
       init : function () {
-        console.log('amountOfYen initialized.');
         this.$amountOfYen = sandbox.x('$')('#amountOfYen');
         this.addListeners();
         this.listen();
@@ -23,26 +22,36 @@
       },
 
       onChange : function () {
-        console.log('amountOfYen input changed.');
         var newValue = this.$amountOfYen[0].value;
         this.notify(newValue);
       },
 
       newDollarInputValue : function (data) {
-        console.log('newDollarInputValue:', data.value);
+        var self = this;
+        var notifiedData = data.value;
         sandbox.x('$').ajax({
           type: 'GET',
-          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=USD_TRY,TRY_USD',
+          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=JPY_USD',
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
-            console.dir(data);
+            self.$amountOfYen[0].value = notifiedData * data.results['JPY_USD'].val;
           }
         });
       },
 
       newEuroInputValue : function (data) {
-        console.log('newEuroInputValue', data.value);
+        var self = this;
+        var notifiedData = data.value;
+        sandbox.x('$').ajax({
+          type: 'GET',
+          url : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q=JPY_EUR',
+          crossDomain: true,
+          dataType: 'jsonp',
+          success: function(data) {
+            self.$amountOfYen[0].value = notifiedData * data.results['JPY_EUR'].val;
+          }
+        });
       },
 
       notify : function (newValue) {
