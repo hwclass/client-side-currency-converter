@@ -53,5 +53,32 @@ It is developed basicly on Node.js platform with Express in the server-side, Cor
   });
 
 }) (Core);
+
+</code>
+</pre>
+
+### Extending Libraries, etc. (extensions.js)
+<pre lang="javascript">
+<code>
+  Core.extend('$', jQuery);
+  Core.extend('numeral', numeral);
+  Core.extend('config', config);
+</code>
+</pre>
+
+### Getting modules worked, etc. (boot.js)
+<pre lang="javascript">
+<code>
+  /*Start all modules*/
+  Core.startAll();
+
+  /*Start specifically*/
+  Core.start('moduleName');
+
+  /*Stop all modules*/
+  Core.stopAll();
+
+  /*Stop specifically*/
+  Core.stop('moduleName');
 </code>
 </pre>
