@@ -35,6 +35,7 @@
 
     <div class="container">
 
+      <!--
       <form id="currencyConverterForm" class="form-signin">
         <h1 class="form-signin-heading text-muted">Client-Side Currency Converter</h1>
         <input type="text" id="amountOfDollar" class="form-control" placeholder="Dollar" required="" autofocus="">
@@ -42,7 +43,23 @@
         <input type="text" id="amountOfYen" class="form-control" placeholder="Yen" required="">
         <div id="errorSection"></div>
       </form>
-    
+    -->
+      <form id="currencyConverterForm" class="form-signin">
+        <h1 class="form-signin-heading text-muted">Client-Side Currency Converter</h1>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">$</span>
+          <input type="text" id="amountOfDollar" class="form-control" placeholder="Dollar" aria-describedby="sizing-addon1">
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">£</span>
+          <input type="text" id="amountOfEuro" class="form-control" placeholder="Euro" aria-describedby="sizing-addon1">
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">¥</span>
+          <input type="text" id="amountOfYen" class="form-control" placeholder="Yen" aria-describedby="sizing-addon1">
+        </div>
+        <div id="errorSection"></div>
+      </form>
     </div>
 
     <!--
