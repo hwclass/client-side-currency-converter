@@ -1,4 +1,7 @@
-//Currency Converter Form
+/*
+ * Module :: currentConverterForm.js
+ * Info : Module for form wrapping the inputs.
+ */
 
 (function(Core) {
   
@@ -18,15 +21,15 @@
       },
 
       newDollarInputValue : function (data) {
-        console.log('newDollarInputValue:', data.value);
+        //console.log('newDollarInputValue:', data.value);
       },
 
       newEuroInputValue : function (data) {
-        console.log('newEuroInputValue:', data.value);
+        //console.log('newEuroInputValue:', data.value);
       },
 
       newYenInputValue : function (data) {
-        console.log('newYenInputValue', data.value);
+        //console.log('newYenInputValue', data.value);
       }
 
     }

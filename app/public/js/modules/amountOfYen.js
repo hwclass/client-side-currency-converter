@@ -38,7 +38,9 @@
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
-            self.$amountOfYen[0].value = sandbox.x('numeral')(notifiedData * data.results['USD_JPY'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData)) {
+              self.$amountOfYen[0].value = sandbox.x('numeral')(notifiedData * data.results['USD_JPY'].val).format("0,0.00[0]");
+            }
           }
         });
       },
@@ -52,7 +54,9 @@
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
-            self.$amountOfYen[0].value = sandbox.x('numeral')(notifiedData * data.results['EUR_JPY'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData)) {
+              self.$amountOfYen[0].value = sandbox.x('numeral')(notifiedData * data.results['EUR_JPY'].val).format("0,0.00[0]");
+            }
           }
         });
       },

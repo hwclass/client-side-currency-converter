@@ -38,7 +38,9 @@
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
-            self.$amountOfDollar[0].value = sandbox.x('numeral')(notifiedData * data.results['EUR_USD'].val).format('0,0.00[0]');
+            if (!isNaN(notifiedData)) {
+              self.$amountOfDollar[0].value = sandbox.x('numeral')(notifiedData * data.results['EUR_USD'].val).format('0,0.00[0]');
+            }
           }
         });
       },
@@ -52,7 +54,9 @@
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
-            self.$amountOfDollar[0].value = sandbox.x('numeral')(notifiedData * data.results['JPY_USD'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData)) {
+              self.$amountOfDollar[0].value = sandbox.x('numeral')(notifiedData * data.results['JPY_USD'].val).format("0,0.00[0]");
+            }
           }
         });
       },

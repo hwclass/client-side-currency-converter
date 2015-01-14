@@ -19,6 +19,7 @@
     <script type="text/javascript" src="js/modules/amountOfEuro.js"></script>
     <script type="text/javascript" src="js/modules/amountOfYen.js"></script>
     <script type="text/javascript" src="js/modules/currencyConverterForm.js"></script>
+    <script type="text/javascript" src="js/modules/errorSection.js"></script>
 	</head>
 	<body>		
     <!--
@@ -29,11 +30,28 @@
     </div>
     <ul class="tweetlist"  id="tweet-list"></ul>
     -->
+
+    <div id="fullscreen_bg" class="fullscreen_bg"/>
+
+    <div class="container">
+
+      <form id="currencyConverterForm" class="form-signin">
+        <h1 class="form-signin-heading text-muted">Client-Side Currency Converter</h1>
+        <input type="text" id="amountOfDollar" class="form-control" placeholder="Dollar" required="" autofocus="">
+        <input type="text" id="amountOfEuro" class="form-control" placeholder="Euro" required="">
+        <input type="text" id="amountOfYen" class="form-control" placeholder="Yen" required="">
+        <div id="errorSection"></div>
+      </form>
+    
+    </div>
+
+    <!--
     <form id="currencyConverterForm">
       <input type="text" id="amountOfDollar" class="fl">
       <input type="text" id="amountOfEuro" class="fl">
       <input type="text" id="amountOfYen" class="fl">
     </form>
+    -->
     <ul id="exchangeList"></ul>
     <script type="text/javascript" src="js/boot.js"></script>
   </body>

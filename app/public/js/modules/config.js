@@ -1,4 +1,7 @@
-//config
+/*
+ * Module :: config.js
+ * Info : Module for the configuration constants.
+ */
 
 var config = (function(){ 
   return {
@@ -16,6 +19,9 @@ var config = (function(){
         YEN_TO_DOLLAR : 'JPY_USD',
         YEN_TO_EURO : 'JPY_EUR'
       }
+    },
+    ERROR : {
+      notNumeric : 'Please, enter a numeric digit.'
     }
   }
 })();
