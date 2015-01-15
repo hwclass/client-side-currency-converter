@@ -16,7 +16,7 @@
       },
 
       addListeners : function () {
-        this.$amountOfDollar.on('change', this.onChange.bind(this));
+        this.$amountOfDollar.on('keypress', this.onKeypress.bind(this));
       },
 
       listen :  function () {
@@ -24,7 +24,7 @@
         sandbox.listen('newYenInputValue', this.newYenInputValue, this);
       },
 
-      onChange : function () {
+      onKeypress : function () {
         var newValue = this.$amountOfDollar[0].value;
         this.notify(newValue);
       },
