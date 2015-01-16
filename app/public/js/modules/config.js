@@ -18,6 +18,9 @@
           EURO_TO_YEN : 'EUR_JPY',
           YEN_TO_DOLLAR : 'JPY_USD',
           YEN_TO_EURO : 'JPY_EUR'
+        },
+        URL : {
+          CONVERT : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q='
         }
       },
       ERROR : {
