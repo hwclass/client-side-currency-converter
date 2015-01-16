@@ -30,21 +30,21 @@
        * newDollarInputValue is a method to listen to the entering keys in the Dollar currency input.
        */
       newDollarInputValue : function (data) {
-        //console.log('newDollarInputValue:', data.value);
+        console.log('newDollarInputValue:', data.value);
       },
 
       /**
        * newEuroInputValue is a method to listen to the entering keys in the Euro currency input.
        */
       newEuroInputValue : function (data) {
-        //console.log('newEuroInputValue:', data.value);
+        console.log('newEuroInputValue:', data.value);
       },
 
       /**
        * newYenInputValue is a method to listen to the entering keys in the Euro currency input.
        */
       newYenInputValue : function (data) {
-        //console.log('newYenInputValue', data.value);
+        console.log('newYenInputValue', data.value);
       }
 
     }
