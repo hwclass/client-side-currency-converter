@@ -16,7 +16,7 @@
       },
 
       addListeners : function () {
-        this.$amountOfEuro.on('change', this.onChange.bind(this));
+        this.$amountOfEuro.on('keypress', this.onKeypress.bind(this));
       },
 
       listen :  function () {
@@ -24,9 +24,12 @@
         sandbox.listen('newYenInputValue', this.newYenInputValue, this);
       },
 
-      onChange : function () {
-        var newValue = this.$amountOfEuro[0].value;
-        this.notify(newValue);
+      onKeypress : function () {
+        var self = this;
+        setTimeout(function () {
+          var newValue = self.$amountOfEuro[0].value;
+          self.notify(newValue);
+        }, 0);
       },
 
       newDollarInputValue : function (data) {
@@ -39,7 +42,7 @@
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
-              self.$amountOfEuro[0].value = sandbox.x('numeral')(notifiedData * data.results['USD_EUR'].val).format("0,0.00[0]");
+              self.$amountOfEuro[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['USD_EUR'].val).format("0,0.00[0]");
             }
           }
         });
@@ -55,7 +58,7 @@
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
-              self.$amountOfEuro[0].value = sandbox.x('numeral')(notifiedData * data.results['JPY_EUR'].val).format("0,0.00[0]");
+              self.$amountOfEuro[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['JPY_EUR'].val).format("0,0.00[0]");
             }
           }
         });
