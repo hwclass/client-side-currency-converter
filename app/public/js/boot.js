@@ -14,3 +14,13 @@ Core.start('amountOfYen');
 */
 
 Core.startAll();
+
+/*
+Core.stop('currencyConverterForm');
+Core.stop('exchangeList');
+Core.stop('amountOfDollar');
+Core.stop('amountOfEuro');
+Core.stop('amountOfYen');
+*/
+
+/*Core.stopAll();*/
