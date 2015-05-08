@@ -1,8 +1,8 @@
 'use strict';
 
-/*
- * File :: boot.js
- * Info : Code for initializing the modules. If you expect, you can set them one by one.
+/**
+ * boot.js
+ * The initializer for the whole modules throughout the application
  */
 
 /*
@@ -13,8 +13,6 @@ Core.start('amountOfEuro');
 Core.start('amountOfYen');
 */
 
-Core.startAll();
-
 /*
 Core.stop('currencyConverterForm');
 Core.stop('exchangeList');
@@ -22,5 +20,7 @@ Core.stop('amountOfDollar');
 Core.stop('amountOfEuro');
 Core.stop('amountOfYen');
 */
+
+Core.startAll();
 
 /*Core.stopAll();*/
