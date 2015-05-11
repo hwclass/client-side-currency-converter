@@ -1,11 +1,11 @@
 /*
- * Module :: amountOfDollar.js
+ * Module :: dollarInput.js
  * Info : Module for the input element of dollar currency.
  */
 
 (function(Core) {
 	
-  Core.register('amountOfDollar', function (sandbox) {
+  Core.register('dollarInput', function (sandbox) {
 
     return {
 
@@ -13,7 +13,7 @@
        * init is a method that is used to make the listeners add and start
        */
       init : function () {
-        this.$amountOfDollar = sandbox.x('$')('#amountOfDollar');
+        this.$dollarInput = sandbox.x('$')('#dollarInput');
         this.addListeners();
         this.listen();
       },
@@ -22,7 +22,7 @@
        * addListeners is a method that is used to bind events
        */
       addListeners : function () {
-        this.$amountOfDollar.on('keypress', this.onKeypress.bind(this));
+        this.$dollarInput.on('keypress', this.onKeypress.bind(this));
       },
 
       /**
@@ -39,7 +39,7 @@
       onKeypress : function () {
         var self = this;
         setTimeout(function () {
-          var newValue = self.$amountOfDollar[0].value;
+          var newValue = self.$dollarInput[0].value;
           self.notify(newValue);
         }, 0);
       },
@@ -57,7 +57,7 @@
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
-              self.$amountOfDollar[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['EUR_USD'].val).format('0,0.00[0]');
+              self.$dollarInput[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['EUR_USD'].val).format('0,0.00[0]');
             }
           }
         });
@@ -76,7 +76,7 @@
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
-              self.$amountOfDollar[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['JPY_USD'].val).format("0,0.00[0]");
+              self.$dollarInput[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['JPY_USD'].val).format("0,0.00[0]");
             }
           }
         });

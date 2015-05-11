@@ -8,17 +8,17 @@
 /*
 Core.start('currencyConverterForm');
 Core.start('exchangeList');
-Core.start('amountOfDollar');
-Core.start('amountOfEuro');
-Core.start('amountOfYen');
+Core.start('dollarInput');
+Core.start('euroInput');
+Core.start('yenInput');
 */
 
 /*
 Core.stop('currencyConverterForm');
 Core.stop('exchangeList');
-Core.stop('amountOfDollar');
-Core.stop('amountOfEuro');
-Core.stop('amountOfYen');
+Core.stop('dollarInput');
+Core.stop('euroInput');
+Core.stop('yenInput');
 */
 
 Core.startAll();
