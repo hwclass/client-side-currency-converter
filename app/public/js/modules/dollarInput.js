@@ -31,6 +31,7 @@
       listen :  function () {
         sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
         sandbox.listen('newYenInputValue', this.newYenInputValue, this);
+        sandbox.listen('newLiraInputValue', this.newLiraInputValue, this);
       },
 
       /**
@@ -77,6 +78,25 @@
           success: function(data) {
             if (!isNaN(notifiedData)) {
               self.$dollarInput[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['JPY_USD'].val).format("0,0.00[0]");
+            }
+          }
+        });
+      },
+
+      /**
+       * newEuroInputValue is a method to listen to the entering keys in the Euro currency input.
+       */
+      newLiraInputValue : function (data) {
+        var self = this;
+        var notifiedData = data.value;
+        sandbox.x('$').ajax({
+          type: 'GET',
+          url : sandbox.x('config').API.URL.CONVERT + sandbox.x('config').CURRENCY.LIRA + '_' + sandbox.x('config').CURRENCY.DOLLAR,
+          crossDomain: true,
+          dataType: 'jsonp',
+          success: function(data) {
+            if (!isNaN(notifiedData)) {
+              self.$liraInput[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['TRY_USD'].val).format('0,0.00[0]');
             }
           }
         });

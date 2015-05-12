@@ -24,6 +24,7 @@
         sandbox.listen('newDollarInputValue', this.newDollarInputValue, this);
         sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
         sandbox.listen('newYenInputValue', this.newYenInputValue, this);
+        sandbox.listen('newLiraInputValue', this.newLiraInputValue, this);
       },
 
       /**
@@ -45,6 +46,13 @@
        */
       newYenInputValue : function (data) {
         console.log('newYenInputValue', data.value);
+      },
+
+      /**
+       * newYenInputValue is a method to listen to the entering keys in the Euro currency input.
+       */
+      newLiraInputValue : function (data) {
+        console.log('newLiraInputValue', data.value);
       }
 
     }

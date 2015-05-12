@@ -11,6 +11,7 @@ Core.start('exchangeList');
 Core.start('dollarInput');
 Core.start('euroInput');
 Core.start('yenInput');
+Core.start('liraInput');
 */
 
 /*
@@ -19,6 +20,7 @@ Core.stop('exchangeList');
 Core.stop('dollarInput');
 Core.stop('euroInput');
 Core.stop('yenInput');
+Core.stop('liraInput');
 */
 
 Core.startAll();

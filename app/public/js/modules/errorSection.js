@@ -24,6 +24,7 @@
     		sandbox.listen('newDollarInputValue', this.newDollarInputValue, this);
     		sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
     		sandbox.listen('newYenInputValue', this.newYenInputValue, this);
+        sandbox.listen('newLiraInputValue', this.newLiraInputValue, this);
     	},
 
       /**
@@ -57,7 +58,18 @@
     		} else {
     			this.$errorSection.html('');
     		}
-    	}
+    	},
+
+      /**
+       * newLiraInputValue is a method to listen to the entering keys in the Yen currency input and present error.
+       */
+      newLiraInputValue : function (data) {
+        if (isNaN(data.value)) {
+          this.$errorSection.html(sandbox.x('config').ERROR.notNumeric);
+        } else {
+          this.$errorSection.html('');
+        }
+      }
 
     }
 

@@ -8,7 +8,8 @@ var config = (function(){
     CURRENCY : {
     	DOLLAR : 'USD',
     	EURO : 'EUR',
-    	YEN : 'JPY'
+    	YEN : 'JPY',
+      LIRA : 'TRY'
     },
     API : {
       CONVERSION : {
@@ -20,7 +21,10 @@ var config = (function(){
         EURO_TO_TRY : 'EUR_TRY',
         YEN_TO_DOLLAR : 'JPY_USD',
         YEN_TO_EURO : 'JPY_EUR',
-        YEN_TO_TRY : 'JPY_TRY'
+        YEN_TO_TRY : 'JPY_TRY',
+        TRY_TO_USD : 'TRY_USD',
+        TRY_TO_EURO : 'TRY_EURO',
+        TRY_TO_YEN : 'TRY_JPY'
       },
       URL : {
         CONVERT : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q='
