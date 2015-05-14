@@ -32,6 +32,7 @@
         sandbox.listen('newDollarInputValue', this.newDollarInputValue, this);
         sandbox.listen('newYenInputValue', this.newYenInputValue, this);
         sandbox.listen('newLiraInputValue', this.newLiraInputValue, this);
+        sandbox.listen('newSterlinInputValue', this.newSterlinInputValue, this);
       },
 
       /**
@@ -84,7 +85,7 @@
       },
 
       /**
-       * newYenInputValue is a method to listen to the entering keys in the Yen currency input.
+       * newLiraInputValue is a method to listen to the entering keys in the Lira currency input.
        */
       newLiraInputValue : function (data) {
         var self = this;
@@ -97,6 +98,25 @@
           success: function(data) {
             if (!isNaN(notifiedData)) {
               self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['TRY_EUR'].val).format("0,0.00[0]");
+            }
+          }
+        });
+      },
+
+      /**
+       * newSterlinInputValue is a method to listen to the entering keys in the Lira currency input.
+       */
+      newSterlinInputValue : function (data) {
+        var self = this;
+        var notifiedData = data.value;
+        sandbox.use('$').ajax({
+          type: 'GET',
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').CURRENCY.STERLIN + '_' + sandbox.use('config').CURRENCY.EURO,
+          crossDomain: true,
+          dataType: 'jsonp',
+          success: function(data) {
+            if (!isNaN(notifiedData)) {
+              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['GBP_EUR'].val).format("0,0.00[0]");
             }
           }
         });

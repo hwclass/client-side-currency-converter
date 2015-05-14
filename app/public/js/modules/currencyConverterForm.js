@@ -25,6 +25,7 @@
         sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
         sandbox.listen('newYenInputValue', this.newYenInputValue, this);
         sandbox.listen('newLiraInputValue', this.newLiraInputValue, this);
+        sandbox.listen('newSterlinInputValue', this.newSterlinInputValue, this);
       },
 
       /**
@@ -42,17 +43,24 @@
       },
 
       /**
-       * newYenInputValue is a method to listen to the entering keys in the Euro currency input.
+       * newYenInputValue is a method to listen to the entering keys in the Yen currency input.
        */
       newYenInputValue : function (data) {
         console.log('newYenInputValue', data.value);
       },
 
       /**
-       * newYenInputValue is a method to listen to the entering keys in the Euro currency input.
+       * newYenInputValue is a method to listen to the entering keys in the Lira currency input.
        */
       newLiraInputValue : function (data) {
         console.log('newLiraInputValue', data.value);
+      },
+
+      /**
+       * newYenInputValue is a method to listen to the entering keys in the Sterlin currency input.
+       */
+      newSterlinInputValue : function (data) {
+        console.log('newSterlinInputValue', data.value);
       }
 
     }
