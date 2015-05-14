@@ -13,7 +13,7 @@
        * init is a method that is used to make the listeners add and start
        */
       init: function() {
-        this.$currencyConverterForm = sandbox.x('$')('#currencyConverterForm');
+        this.$currencyConverterForm = sandbox.use('$')('#currencyConverterForm');
         this.listen();
       },
 

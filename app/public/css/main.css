@@ -15,3 +15,5 @@ input{border-radius:0!important; height: 46px !important;}
 .fr{float:right}
 #errorSection{color:#FFF;margin-top:10px}
 .input-group-addon{border-radius: 0 !important;}
+.input-group.input-group-lg.custom {width: 23%; float: left; height: 200px; margin: 10px;}
+.input-group.input-group-lg.custom input {  height: 200px!important; font-size: 100px;}

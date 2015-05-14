@@ -13,7 +13,7 @@
        * init is a method that is used to make the listeners add and start
        */
       init : function () {
-        this.$dollarInput = sandbox.x('$')('#dollarInput');
+        this.$dollarInput = sandbox.use('$')('#dollarInput');
         this.addListeners();
         this.listen();
       },
@@ -51,14 +51,14 @@
       newEuroInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
-        sandbox.x('$').ajax({
+        sandbox.use('$').ajax({
           type: 'GET',
-          url : sandbox.x('config').API.URL.CONVERT + sandbox.x('config').CURRENCY.EURO + '_' + sandbox.x('config').CURRENCY.DOLLAR,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').CURRENCY.EURO + '_' + sandbox.use('config').CURRENCY.DOLLAR,
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
-              self.$dollarInput[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['EUR_USD'].val).format('0,0.00[0]');
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['EUR_USD'].val).format('0,0.00[0]');
             }
           }
         });
@@ -70,14 +70,14 @@
       newYenInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
-        sandbox.x('$').ajax({
+        sandbox.use('$').ajax({
           type: 'GET',
-          url : sandbox.x('config').API.URL.CONVERT + sandbox.x('config').CURRENCY.YEN + '_' + sandbox.x('config').CURRENCY.DOLLAR,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').CURRENCY.YEN + '_' + sandbox.use('config').CURRENCY.DOLLAR,
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
-              self.$dollarInput[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['JPY_USD'].val).format("0,0.00[0]");
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['JPY_USD'].val).format("0,0.00[0]");
             }
           }
         });
@@ -89,14 +89,14 @@
       newLiraInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
-        sandbox.x('$').ajax({
+        sandbox.use('$').ajax({
           type: 'GET',
-          url : sandbox.x('config').API.URL.CONVERT + sandbox.x('config').CURRENCY.LIRA + '_' + sandbox.x('config').CURRENCY.DOLLAR,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').CURRENCY.LIRA + '_' + sandbox.use('config').CURRENCY.DOLLAR,
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
-              self.$liraInput[0].value = sandbox.x('numeral')(parseInt(notifiedData) * data.results['TRY_USD'].val).format('0,0.00[0]');
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['TRY_USD'].val).format('0,0.00[0]');
             }
           }
         });

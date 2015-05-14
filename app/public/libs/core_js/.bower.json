@@ -1,6 +1,6 @@
 {
   "name": "core_js",
-  "version": "0.2.1",
+  "version": "0.7.0",
   "homepage": "https://github.com/mauriciosoares/core.js",
   "authors": [
     "Mauricio Soares <m.soares2603@gmail.com>"
@@ -25,14 +25,13 @@
     "test",
     "tests"
   ],
-  "_release": "0.2.1",
+  "_release": "0.7.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.2.1",
-    "commit": "6ec8e75ef8a0ef59acf3722289b375f63ddc408e"
+    "tag": "v0.7.0",
+    "commit": "22eb6b67ff3d69b15395150d0e72632dff8f0779"
   },
   "_source": "git://github.com/mauriciosoares/core.js.git",
-  "_target": "~0.2.1",
-  "_originalSource": "core_js",
-  "_direct": true
+  "_target": "0.7.0",
+  "_originalSource": "core_js"
 }

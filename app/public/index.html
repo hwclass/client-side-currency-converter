@@ -17,8 +17,7 @@
     <script type="text/javascript" src="js/modules/euroInput.js"></script>
     <script type="text/javascript" src="js/modules/yenInput.js"></script>
     <script type="text/javascript" src="js/modules/liraInput.js"></script>
-    <script type="text/javascript" src="js/modules/currencyConverterForm.js"></script>
-    <script type="text/javascript" src="js/modules/errorSection.js"></script>
+
     <script type="text/javascript" src="js/modules/utils.js"></script>
 	</head>
 	<body>		
@@ -26,21 +25,21 @@
     <div class="container">
       <form id="currencyConverterForm" class="form-signin">
         <h1 class="form-signin-heading text-muted">Client-Side Currency Converter</h1>
-        <div class="input-group input-group-lg">
+        <div class="input-group input-group-lg custom">
           <span class="input-group-addon" id="sizing-addon1" title="Dollar">$</span>
-          <input type="text" id="dollarInput" class="form-control" placeholder="Dollar" tabindex="1" aria-describedby="sizing-addon1">
+          <input type="text" id="dollarInput" class="form-control" placeholder="Dollar" tabindex="0" aria-describedby="sizing-addon1">
         </div>
-        <div class="input-group input-group-lg">
+        <div class="input-group input-group-lg custom">
           <span class="input-group-addon" id="sizing-addon1" title="Euro">€</span>
-          <input type="text" id="euroInput" class="form-control" placeholder="Euro" tabindex="2" aria-describedby="sizing-addon1">
+          <input type="text" id="euroInput" class="form-control" placeholder="Euro" tabindex="1" aria-describedby="sizing-addon1">
         </div>
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon" id="sizing-addon1" title="Yen">¥</span>
-          <input type="text" id="yenInput" class="form-control" placeholder="Yen" tabindex="3" aria-describedby="sizing-addon1">
+        <div class="input-group input-group-lg custom">
+          <span class="input-group-addon" id="sizing-addon1" title="Yen">&#8378;</span>
+          <input type="text" id="yenInput" class="form-control" placeholder="Yen" tabindex="1" aria-describedby="sizing-addon1">
         </div>
-        <div class="input-group input-group-lg">
+        <div class="input-group input-group-lg custom">
           <span class="input-group-addon" id="sizing-addon1" title="Lira">&#8378;</span>
-          <input type="text" id="liraInput" class="form-control" placeholder="Lira" tabindex="4" aria-describedby="sizing-addon1">
+          <input type="text" id="liraInput" class="form-control" placeholder="Lira" tabindex="1" aria-describedby="sizing-addon1">
         </div>
         <div id="errorSection"></div>
       </form>

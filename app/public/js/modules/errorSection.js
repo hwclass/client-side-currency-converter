@@ -13,7 +13,7 @@
        * init is a method that is used to make the listeners add and start
        */
     	init : function () {
-    		this.$errorSection = sandbox.x('$')('#errorSection');
+    		this.$errorSection = sandbox.use('$')('#errorSection');
         this.listen();
     	},
 
@@ -32,7 +32,7 @@
        */
     	newDollarInputValue : function (data) {
     		if (isNaN(data.value)) {
-    			this.$errorSection.html(sandbox.x('config').ERROR.notNumeric);
+    			this.$errorSection.html(sandbox.use('config').ERROR.notNumeric);
     		} else {
     			this.$errorSection.html('');
     		}
@@ -43,7 +43,7 @@
        */
     	newEuroInputValue : function (data) {
     		if (isNaN(data.value)) {
-    			this.$errorSection.html(sandbox.x('config').ERROR.notNumeric);
+    			this.$errorSection.html(sandbox.use('config').ERROR.notNumeric);
     		} else {
     			this.$errorSection.html('');
     		}
@@ -54,7 +54,7 @@
        */
     	newYenInputValue : function (data) {
     		if (isNaN(data.value)) {
-    			this.$errorSection.html(sandbox.x('config').ERROR.notNumeric);
+    			this.$errorSection.html(sandbox.use('config').ERROR.notNumeric);
     		} else {
     			this.$errorSection.html('');
     		}
@@ -65,7 +65,7 @@
        */
       newLiraInputValue : function (data) {
         if (isNaN(data.value)) {
-          this.$errorSection.html(sandbox.x('config').ERROR.notNumeric);
+          this.$errorSection.html(sandbox.use('config').ERROR.notNumeric);
         } else {
           this.$errorSection.html('');
         }

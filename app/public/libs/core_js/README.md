@@ -1,4 +1,4 @@
-# Core.js [![Build Status](https://travis-ci.org/mauriciosoares/core.js.svg?branch=master)](https://travis-ci.org/mauriciosoares/core.js) [![Coverage Status](https://img.shields.io/coveralls/mauriciosoares/core.js.svg)](https://coveralls.io/r/mauriciosoares/core.js)
+# Core.js [![Build Status](https://travis-ci.org/mauriciosoares/core.js.svg?branch=master)](https://travis-ci.org/mauriciosoares/core.js) [![Coverage Status](https://img.shields.io/coveralls/mauriciosoares/core.js.svg)](https://coveralls.io/r/mauriciosoares/core.js) [![Code Climate](https://codeclimate.com/github/mauriciosoares/core.js/badges/gpa.svg)](https://codeclimate.com/github/mauriciosoares/core.js)
 
 __Core.js__ is a concept introduced by Nicholas C. Zakas in this [video](https://www.youtube.com/watch?v=b5pFv9NB9fs)
 
@@ -67,7 +67,7 @@ Core.register('tweet-list', function(sandbox) {
 });
 ```
 
-If you have multiple modules you can start everything using `Core.startAll();`, and everything will be started. But if you need some specific order for starting your modules, you can call the modules you want first, and then use `Core.startAll()`.
+If you have multiple modules you can start everything using `Core.start();` with no parameters, and everything will be started. But if you need some specific order for starting your modules, you can call the modules you want first, and then use `Core.start()`.
 
 ### Destroying modules
 
@@ -168,7 +168,7 @@ Core.extend('$', jQuery);
 Core.register('tweet', function(sandbox) {
   return {
     init: function() {
-      sandbox.x('$')('#tweet').on('click', this.newTweet);
+      sandbox.use('$')('#tweet').on('click', this.newTweet);
     },
 
     newTweet: function() {
@@ -178,7 +178,7 @@ Core.register('tweet', function(sandbox) {
 });
 ```
 
-Using the method `x` from `sandbox`, it gives you access to all extensions from Core, without talking directly to it.
+Using the method `use` from `sandbox`, it gives you access to all extensions from Core, without talking directly to it.
 
 You might think: _"Why do that? it's only increasing the code"_. But since we are talking about consistency, and maybe a code that will be updated by other programmers, this is a way we can keep things standardized, and again, conpectually a module should not talk to anything else but the `sandbox`.
 
@@ -201,7 +201,7 @@ Core.register('module', function() {})
 ```
 
 #### Core.start( moduleName )
-Starts the named module.
+Starts the named module. If a value is returned in the `init` method, it can be grabbed in the return of the method `Core.start`. If no parameters are passed, it starts all unstarted modules.
 
 - `moduleName` (string): The name of the module
 
@@ -213,7 +213,7 @@ Core.start('module');
 
 
 #### Core.stop( moduleName )
-Stops the named module.
+Stops the named module. If a value is returned in the `destroy` method, it can be grabbed in the return of the method `Core.stop`
 
 - `moduleName` (string): The name of the module
 
@@ -223,8 +223,8 @@ __Usage__
 Core.stop('module');
 ```
 
-#### Core.startAll()
-Starts all modules.
+#### Core.startAll() - _deprecated_
+Starts all modules. (You should use `Core.start()` with no parameters instead)
 
 __Usage__
 
@@ -232,8 +232,8 @@ __Usage__
 Core.startAll();
 ```
 
-#### Core.stopAll()
-Stops all modules.
+#### Core.stopAll() - _deprecated_
+Stops all modules. (You should use `Core.stop()` with no parameters instead)
 
 __Usage__
 
@@ -268,7 +268,7 @@ Notifies other modules
   - `type` (string): The notification that will be triggered
   - `data` (function | string | number | boolean | array): The data that will be passed in the callback
 
-#### sandbox.x( extension )
+#### sandbox.use( extension )
 Calls the extension from core, if there's any
 
 - `extension` (string): The name of the extension
@@ -297,10 +297,16 @@ You need [NodeJS](http://nodejs.org/) installed on your machine
 
 1. Run `npm install`
 2. Run `npm install -g grunt-cli` to install the grunt command
-3. Run `npm test`
+3. Run `grunt jasmine`
 
 ## Release History
 
+* 2015-02-15   v0.7.0   Deprecate `Core.stopAll`
+* 2015-02-12   v0.6.0   Deprecate `Core.startAll`
+* 2015-02-05   v0.5.0   Changes `x` to `use` in `Sandbox`
+* 2015-01-17   v0.4.0   Add UMD
+* 2015-01-15   v0.3.0   Ability to return values from init and destroy methods
+* 2015-01-10   v0.2.1   Improve error messages
 * 2014-12-30   v0.2.0   Isolation of DOM in modules
 * 2014-12-21   v0.1.0   Release usable version
 
