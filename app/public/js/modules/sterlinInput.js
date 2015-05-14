@@ -41,7 +41,7 @@
       onKeypress : function () {
         var self = this;
         setTimeout(function () {
-          var newValue = self.$liraInput[0].value;
+          var newValue = self.$sterlinInput[0].value;
           self.notify(newValue);
         }, 0);
       },
