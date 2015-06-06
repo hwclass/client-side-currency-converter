@@ -18,7 +18,7 @@ It is developed basicly on Node.js platform with <a href="https://github.com/str
 
       init : function () {
         console.log('This is the initialization method for the module.');
-        this.$amountOfDollar = sandbox.x('$')('#amountOfDollar');
+        this.$amountOfDollar = sandbox.use('$')('#amountOfDollar');
         this.addListeners();
         this.listen();
       },
