@@ -54,7 +54,7 @@
         var notifiedData = data.value;
         sandbox.use('$').ajax({
           type: 'GET',
-          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').CURRENCY.DOLLAR + '_' + sandbox.use('config').CURRENCY.LIRA,
+          url : sandbox.use('config').API.URL.CONVERT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.DOLLAR + '&to=' + sandbox.use('config').CURRENCY.LIRA + '&amount=' + notifiedData,
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
@@ -73,7 +73,7 @@
         var notifiedData = data.value;
         sandbox.use('$').ajax({
           type: 'GET',
-          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').CURRENCY.EURO + '_' + sandbox.use('config').CURRENCY.LIRA,
+          url : sandbox.use('config').API.URL.CONVERT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.EURO + '&to=' + sandbox.use('config').CURRENCY.LIRA + '&amount=' + notifiedData,
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
@@ -92,7 +92,7 @@
         var notifiedData = data.value;
         sandbox.use('$').ajax({
           type: 'GET',
-          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').CURRENCY.YEN + '_' + sandbox.use('config').CURRENCY.LIRA,
+          url : sandbox.use('config').API.URL.CONVERT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.YEN + '&to=' + sandbox.use('config').CURRENCY.LIRA + '&amount=' + notifiedData,
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {
@@ -111,7 +111,7 @@
         var notifiedData = data.value;
         sandbox.use('$').ajax({
           type: 'GET',
-          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').CURRENCY.STERLIN + '_' + sandbox.use('config').CURRENCY.LIRA,
+          url : sandbox.use('config').API.URL.CONVERT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.STERLIN + '&to=' + sandbox.use('config').CURRENCY.LIRA + '&amount=' + notifiedData,
           crossDomain: true,
           dataType: 'jsonp',
           success: function(data) {

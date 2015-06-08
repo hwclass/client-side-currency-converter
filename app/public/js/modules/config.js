@@ -13,6 +13,7 @@ var config = (function(){
       STERLIN : 'GBP'
     },
     API : {
+      ACCESS_KEY : 'acc5802f1ca9d421f6371dc247e17d90',
       CONVERSION : {
         DOLLAR_TO_EURO : 'USD_EUR',
         DOLLAR_TO_YEN : 'USD_JPY',
@@ -36,7 +37,8 @@ var config = (function(){
         GBP_TO_TRY : 'GBP_TRY'
       },
       URL : {
-        CONVERT : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q='
+        /*CONVERT : 'http://www.freecurrencyconverterapi.com/api/v2/convert?q='*/
+        CONVERT : 'https://apilayer.net/api/'
       }
     },
     ERROR : {
