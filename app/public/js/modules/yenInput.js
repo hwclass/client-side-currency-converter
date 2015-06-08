@@ -53,9 +53,7 @@
         var self = this;
         var notifiedData = data.value;
         sandbox.use('$').ajax({
-          type: 'GET',
-          url : sandbox.use('config').API.URL.CONVERT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.DOLLAR + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
-          crossDomain: true,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.DOLLAR + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
@@ -72,9 +70,7 @@
         var self = this;
         var notifiedData = data.value;
         sandbox.use('$').ajax({
-          type: 'GET',
-          url : sandbox.use('config').API.URL.CONVERT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.EURO + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
-          crossDomain: true,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.EURO + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
@@ -91,9 +87,7 @@
         var self = this;
         var notifiedData = data.value;
         sandbox.use('$').ajax({
-          type: 'GET',
-          url : sandbox.use('config').API.URL.CONVERT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.LIRA + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
-          crossDomain: true,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.LIRA + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
@@ -110,9 +104,7 @@
         var self = this;
         var notifiedData = data.value;
         sandbox.use('$').ajax({
-          type: 'GET',
-          url : sandbox.use('config').API.URL.CONVERT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.STERLIN + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
-          crossDomain: true,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.STERLIN + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData)) {
