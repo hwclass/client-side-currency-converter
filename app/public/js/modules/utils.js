@@ -1,20 +1,34 @@
-/*
- * Module :: utils.js
- * Info : Module for the utility methods.
- */
+'use strict';
 
-var utils = (function(){ 
-  return {
-    request : function (type, url, crossDomain, dataType, callback) {
-      sandbox.x('$').ajax({
-        type: type,
-        url : url,
-        crossDomain: crossDomain,
-        dataType: dataType,
-        success: function(data) {
-          callback(data);
-        }
-      });
+/**
+* utils is the module for the utility methods.
+* @param N/A
+*/
+(function(Core){ 
+  
+  Core.register('utils', function (sandbox) {
+
+    return {
+      init : function () {
+        this.listen();
+      },
+      listen : function () {
+        sandbox.listen('getNewDollarToEuroConversion', this.ajax, this);
+      },
+      ajax : function (options) {
+        sandbox.use('$').ajax({
+          url : options.url,
+          dataType: options.dataType,
+          success: function(data) {
+            options.success(data);
+          },
+          error : function (e) {
+            options.error(e);
+          }
+        });
+      }
     }
-  }
-})();
+
+  });
+
+})(Core);

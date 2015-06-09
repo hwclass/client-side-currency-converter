@@ -58,6 +58,7 @@
       newEuroInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
+        /*
         sandbox.use('$').ajax({
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.EURO + '&to=' + sandbox.use('config').CURRENCY.DOLLAR + '&amount=' + notifiedData,
           dataType: 'jsonp',
@@ -70,6 +71,31 @@
             console.log(e);
           }
         });
+        */
+
+        /*
+        this.utils.ajax(sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.EURO + '&to=' + sandbox.use('config').CURRENCY.DOLLAR + '&amount=' + notifiedData, 'jsonp', function (data) {
+          if (!isNaN(notifiedData) && !!data.success) {
+            self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['EURUSD']).format('0,0.00[0]');
+          }
+        }, function (e) {
+          console.log(e);
+        });
+        */
+
+        this.notifyAjax('getNewEuroToDollarConversion', {
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.EURO + '&to=' + sandbox.use('config').CURRENCY.DOLLAR + '&amount=' + notifiedData,
+          type : 'jsonp',
+          success : function (data) {
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['EURUSD']).format('0,0.00[0]');
+            }
+          },
+          error : function (e) {
+            console.log(e);
+          }
+        });
+
       },
 
       /**
@@ -145,6 +171,15 @@
           data : {
             value : newValue
           }
+        });
+      },
+
+      notifyAjax : function (type, options) {
+        sandbox.notify(type, {
+          url : options.url,
+          type : options.type,
+          success : options.success,
+          error : options.error
         });
       }
 
