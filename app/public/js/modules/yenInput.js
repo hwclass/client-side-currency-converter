@@ -137,7 +137,7 @@
 
       /**
       * notify is a method that is used to inform the whole application that the current event fires
-      * @param <Object> data
+      * @param <number> newValue
       */
       notify : function (newValue) {
         sandbox.notify({

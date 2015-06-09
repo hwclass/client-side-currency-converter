@@ -1,5 +1,5 @@
 /*
- * Module :: dollarInput.js
+ * Module : dollarInput.js
  * Info : Module for the input element of dollar currency.
  */
 
