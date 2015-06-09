@@ -14,6 +14,9 @@
       },
       listen : function () {
         sandbox.listen('getNewDollarToEuroConversion', this.ajax, this);
+        sandbox.listen('getNewDollarToYenConversion', this.ajax, this);
+        sandbox.listen('getNewDollarToSterlinConversion', this.ajax, this);
+        sandbox.listen('getNewDollarToLiraConversion', this.ajax, this);
       },
       ajax : function (options) {
         sandbox.use('$').ajax({

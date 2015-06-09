@@ -58,14 +58,14 @@
       newDollarInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
-        sandbox.use('$').ajax({
+        this.notifyAjax('getNewDollarToYenConversion', {
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.DOLLAR + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
-          dataType: 'jsonp',
-          success: function(data) {
+          type : 'jsonp',
+          success : function (data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['USDJPY']).format("0,0.00[0]");
+              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['USDJPY']).format('0,0.00[0]');
             }
-          }, 
+          },
           error : function (e) {
             console.log(e);
           }
@@ -144,6 +144,22 @@
           type : 'newYenInputValue',
           data : {
             value : newValue
+          }
+        });
+      },
+
+      /**
+      * notifyAjax is a method that is used to inform the whole application that an ajax call invoked
+      * @param <Object> options
+      */
+      notifyAjax : function (type, options) {
+        sandbox.notify({
+          type : type,
+          data : {
+            url : options.url,
+            type : options.type,
+            success : options.success,
+            error : options.error
           }
         });
       }
