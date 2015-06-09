@@ -10,8 +10,10 @@
     return {
 
       /**
-       * init is a method that is used to make the listeners add and start
-       */
+      * init is a method that is used to make the listeners add and start
+      * @param <String> email
+      * @param <String> password
+      */
       init : function () {
         this.$dollarInput = sandbox.use('$')('#dollarInput');
         this.addListeners();
@@ -19,15 +21,17 @@
       },
 
       /**
-       * addListeners is a method that is used to bind events
-       */
+      * addListeners is a method that is used to bind events
+      * @param N/A
+      */
       addListeners : function () {
         this.$dollarInput.on('keypress', this.onKeypress.bind(this));
       },
 
       /**
-       * listen is a method that is used to listen custom events throughtout the application for this module
-       */
+      * listen is a method that is used to listen custom events throughtout the application for this module
+      * @param N/A
+      */
       listen :  function () {
         sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
         sandbox.listen('newYenInputValue', this.newYenInputValue, this);
@@ -36,8 +40,9 @@
       },
 
       /**
-       * onKeypress is a method that is used to initialize functionalities after current event fires
-       */
+      * onKeypress is a method that is used to initialize functionalities after current event fires
+      * @param N/A
+      */
       onKeypress : function () {
         var self = this;
         setTimeout(function () {
@@ -47,8 +52,9 @@
       },
 
       /**
-       * newEuroInputValue is a method to listen to the entering keys in the Euro currency input.
-       */
+      * newEuroInputValue is a method to listen to the entering keys in the Euro currency input.
+      * @param <Object> data
+      */
       newEuroInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
@@ -67,8 +73,9 @@
       },
 
       /**
-       * newYenInputValue is a method to listen to the entering keys in the Yen currency input.
-       */
+      * newYenInputValue is a method to listen to the entering keys in the Yen currency input.
+      * @param <Object> data
+      */
       newYenInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
@@ -87,8 +94,9 @@
       },
 
       /**
-       * newLiraInputValue is a method to listen to the entering keys in the Lira currency input.
-       */
+      * newLiraInputValue is a method to listen to the entering keys in the Lira currency input.
+      * @param <Object> data
+      */
       newLiraInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
@@ -107,8 +115,9 @@
       },
 
       /**
-       * newSterlinInputValue is a method to listen to the entering keys in the Sterlin currency input.
-       */
+      * newSterlinInputValue is a method to listen to the entering keys in the Sterlin currency input.
+      * @param <Object> data
+      */
       newSterlinInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
@@ -127,8 +136,9 @@
       },
 
       /**
-       * notify is a method that is used to inform the whole application that the current event fires
-       */
+      * notify is a method that is used to inform the whole application that the current event fires
+      * @param <number> newValue
+      */
       notify : function (newValue) {
         sandbox.notify({
           type : 'newDollarInputValue',
