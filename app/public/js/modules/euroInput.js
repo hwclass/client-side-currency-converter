@@ -56,9 +56,12 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.DOLLAR + '&to=' + sandbox.use('config').CURRENCY.EURO + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['USD_EUR'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['USDEUR']).format("0,0.00[0]");
             }
+          }, 
+          error : function (e) {
+            console.log(e);
           }
         });
       },
@@ -73,9 +76,12 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.YEN + '&to=' + sandbox.use('config').CURRENCY.EURO + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['JPY_EUR'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['JPYEUR']).format("0,0.00[0]");
             }
+          }, 
+          error : function (e) {
+            console.log(e);
           }
         });
       },
@@ -90,9 +96,12 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.LIRA + '&to=' + sandbox.use('config').CURRENCY.EURO + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['TRY_EUR'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['TRYEUR']).format("0,0.00[0]");
             }
+          }, 
+          error : function (e) {
+            console.log(e);
           }
         });
       },
@@ -107,9 +116,12 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.STERLIN + '&to=' + sandbox.use('config').CURRENCY.EURO + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['GBP_EUR'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['GBPEUR']).format("0,0.00[0]");
             }
+          }, 
+          error : function (e) {
+            console.log(e);
           }
         });
       },

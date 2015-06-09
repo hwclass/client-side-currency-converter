@@ -56,9 +56,12 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.DOLLAR + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['USD_JPY'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['USDJPY']).format("0,0.00[0]");
             }
+          }, 
+          error : function (e) {
+            console.log(e);
           }
         });
       },
@@ -73,9 +76,12 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.EURO + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['EUR_JPY'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['EURJPY']).format("0,0.00[0]");
             }
+          }, 
+          error : function (e) {
+            console.log(e);
           }
         });
       },
@@ -90,9 +96,12 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.LIRA + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['TRY_JPY'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['TRYJPY']).format("0,0.00[0]");
             }
+          }, 
+          error : function (e) {
+            console.log(e);
           }
         });
       },
@@ -107,10 +116,13 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.STERLIN + '&to=' + sandbox.use('config').CURRENCY.YEN + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data.results['GBP_JPY'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['GBPJPY']).format("0,0.00[0]");
             }
-          }
+          }, 
+          error : function (e) {
+            console.log(e);
+          } && !!data.success
         });
       },
 

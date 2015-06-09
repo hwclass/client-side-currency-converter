@@ -52,13 +52,12 @@
       newEuroInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
-        /*'https://apilayer.net/api/' + endpoint + '?access_key=' + access_key +'&from=' + from + '&to=' + to + '&amount=' + amount*/
         sandbox.use('$').ajax({
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.EURO + '&to=' + sandbox.use('config').CURRENCY.DOLLAR + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$dollarInput[0].value = sandbox.use('numeral')(data['quotes']['USDEUR']).format('0,0.00[0]');
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['EURUSD']).format('0,0.00[0]');
             }
           }, 
           error : function (e) {
@@ -77,8 +76,8 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.YEN + '&to=' + sandbox.use('config').CURRENCY.DOLLAR + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$dollarInput[0].value = sandbox.use('numeral')(data.results['JPYUSD'].val).format("0,0.00[0]");
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['JPYUSD']).format("0,0.00[0]");
             }
           }, 
           error : function (e) {
@@ -97,8 +96,8 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.LIRA + '&to=' + sandbox.use('config').CURRENCY.DOLLAR + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$dollarInput[0].value = sandbox.use('numeral')(data.results['TRYUSD'].val).format('0,0.00[0]');
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['TRYUSD']).format('0,0.00[0]');
             }
           }, 
           error : function (e) {
@@ -117,8 +116,8 @@
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.STERLIN + '&to=' + sandbox.use('config').CURRENCY.DOLLAR + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
-            if (!isNaN(notifiedData)) {
-              self.$dollarInput[0].value = sandbox.use('numeral')(data.results['GBPUSD'].val).format('0,0.00[0]');
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['GBPUSD']).format('0,0.00[0]');
             }
           }, 
           error : function (e) {
