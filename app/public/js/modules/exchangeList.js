@@ -7,22 +7,22 @@
     return {
   
       init: function() {
-        this.$exchangeList = sandbox.x('$')('#exchangeList');
+        this.$exchangeList = sandbox.use('$')('#exchangeList');
         this.listen();
       },
 
       listen: function() {
-        sandbox.listen('newAmount', this.newAmount, this);
+        sandbox.listen('newDollarInputValue', this.newAmount, this);
       },
 
       newAmount: function(data) {
         var newAmountHtml = this.getHtml(data);
-        this.$exchangeList.prepend(newAmountHtml);
+        this.$exchangeList.append(newAmountHtml);
       },
 
       getHtml: function(data) {
-        var li = sandbox.x('$')('<li class="currencyExchangeItem">');
-        li.append(data.amount + '<br/>');
+        var li = sandbox.use('$')('<li class="currencyExchangeItem">');
+        li.append(data.value + '<br/>');
         return li;
       }
 

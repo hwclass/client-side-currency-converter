@@ -17,3 +17,5 @@ input{border-radius:0!important; height: 46px !important;}
 .input-group-addon{border-radius: 0 !important;}
 .input-group.input-group-lg.custom {width: 23%; float: left; height: 200px; margin: 10px;}
 .input-group.input-group-lg.custom input {  height: 200px!important; font-size: 100px;}
+#exchangeList {list-style-type: none;}
+#exchangeList li {color : #FFFFFF;}
