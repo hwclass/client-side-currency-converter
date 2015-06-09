@@ -7,6 +7,8 @@ It is developed basicly on Node.js platform with <a href="https://github.com/str
 
 <a href="http://www.freecurrencyconverterapi.com/" target="_blank">Free Currency Converter API</a> is used to fetch data.
 
+<b>Note : The limits of the current weather API, the calls to the API is only for the Dollar to (=>) many currencies. For example, if you expect to get a conversion for Dollar to Euro, it can be possible but if you hope to do the opposite, the API policy does not allow us to fetch the data and return the same values as the same with the Dollar to Euro conversion query.</b>
+
 ### Module Usage
 <pre lang="javascript">
 <code>
