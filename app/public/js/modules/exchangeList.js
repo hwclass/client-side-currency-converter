@@ -15,7 +15,7 @@
         sandbox.listen('newDollarInputValue', this.newAmount, this);
       },
 
-      newAmount: function(data) {
+      newAmount : function(data) {
         var newAmountHtml = this.getHtml(data);
         this.$exchangeList.append(newAmountHtml);
       },
