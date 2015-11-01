@@ -148,7 +148,7 @@
           type : 'jsonp',
           success : function (data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKJPY']).format('0,0.00[0]');
+              self.$yenInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKKJPY']).format('0,0.00[0]');
             }
           },
           error : function (e) {

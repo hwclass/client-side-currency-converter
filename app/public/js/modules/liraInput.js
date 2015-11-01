@@ -147,7 +147,7 @@
           type : 'jsonp',
           success : function (data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$liraInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKTRY']).format('0,0.00[0]');
+              self.$liraInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKKTRY']).format('0,0.00[0]');
             }
           },
           error : function (e) {

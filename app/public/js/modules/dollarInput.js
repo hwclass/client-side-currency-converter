@@ -143,12 +143,12 @@
       newDanishKronInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
-        this.notifyAjax('getNewDAnishKronToDollarConversion', {
+        this.notifyAjax('getNewDanishKronToDollarConversion', {
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.KRON + '&to=' + sandbox.use('config').CURRENCY.DOLLAR + '&amount=' + notifiedData,
           type : 'jsonp',
           success : function (data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKUSD']).format('0,0.00[0]');
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKKUSD']).format('0,0.00[0]');
             }
           },
           error : function (e) {

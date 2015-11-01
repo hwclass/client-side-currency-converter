@@ -12,7 +12,7 @@ var config = (function(){
     	YEN : 'JPY',
       LIRA : 'TRY',
       STERLIN : 'GBP',
-      KRON : 'DK'
+      KRON : 'DKK'
     },
     API : {
       ACCESS_KEY : 'acc5802f1ca9d421f6371dc247e17d90',

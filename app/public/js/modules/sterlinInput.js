@@ -147,7 +147,7 @@
           type : 'jsonp',
           success : function (data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$sterlinInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKGBP']).format('0,0.00[0]');
+              self.$sterlinInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKKGBP']).format('0,0.00[0]');
             }
           },
           error : function (e) {

@@ -59,12 +59,12 @@
       newDollarInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
-        this.notifyAjax('getNewDollarToEuroConversion', {
+        this.notifyAjax('getNewDollarToKronConversion', {
           url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.DOLLAR + '&to=' + sandbox.use('config').CURRENCY.KRON + '&amount=' + notifiedData,
           type : 'jsonp',
           success : function (data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['USDDK']).format('0,0.00[0]');
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['USDDKK']).format('0,0.00[0]');
             }
           },
           error : function (e) {
@@ -85,7 +85,7 @@
           type : 'jsonp',
           success : function (data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['EURDK']).format('0,0.00[0]');
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['EURDKK']).format('0,0.00[0]');
             }
           },
           error : function (e) {
@@ -106,7 +106,7 @@
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['JPYDK']).format("0,0.00[0]");
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['JPYDKK']).format("0,0.00[0]");
             }
           }, 
           error : function (e) {
@@ -127,7 +127,7 @@
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['TRYDK']).format('0,0.00[0]');
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['TRYDKK']).format('0,0.00[0]');
             }
           }, 
           error : function (e) {
@@ -148,7 +148,7 @@
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['GBPDK']).format('0,0.00[0]');
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['GBPDKK']).format('0,0.00[0]');
             }
           }, 
           error : function (e) {
