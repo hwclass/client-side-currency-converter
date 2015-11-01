@@ -136,6 +136,27 @@
       },
 
       /**
+      * newDanishKronInputValue is a method to listen to the entering keys in the Danish Kron currency input.
+      * @param <Object> data
+      */
+      newDanishKronInputValue : function (data) {
+        var self = this;
+        var notifiedData = data.value;
+        this.notifyAjax('getNewDAnishKronToDollarConversion', {
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.KRON + '&to=' + sandbox.use('config').CURRENCY.DOLLAR + '&amount=' + notifiedData,
+          type : 'jsonp',
+          success : function (data) {
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$dollarInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKUSD']).format('0,0.00[0]');
+            }
+          },
+          error : function (e) {
+            console.log(e);
+          }
+        });
+      },
+
+      /**
       * notify is a method that is used to inform the whole application that the current event fires
       * @param <number> newValue
       */

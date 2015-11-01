@@ -1,20 +1,21 @@
 /*
- * Module :: euroInput.js
+ * Module : dollarInput.js
  * Info : Module for the input element of dollar currency.
  */
 
 (function(Core) {
-	
-  Core.register('euroInput', function (sandbox) {
+  
+  Core.register('danishKronInput', function (sandbox) {
 
     return {
 
       /**
       * init is a method that is used to make the listeners add and start
-      * @param N/A
+      * @param <String> email
+      * @param <String> password
       */
       init : function () {
-        this.$euroInput = sandbox.use('$')('#euroInput');
+        this.$danishKronInput = sandbox.use('$')('#danishKronInput');
         this.addListeners();
         this.listen();
       },
@@ -24,7 +25,7 @@
       * @param N/A
       */
       addListeners : function () {
-        this.$euroInput.on('keypress', this.onKeypress.bind(this));
+        this.$danishKronInput.on('keypress', this.onKeypress.bind(this));
       },
 
       /**
@@ -32,7 +33,8 @@
       * @param N/A
       */
       listen :  function () {
-        sandbox.listen('newDollarInputValue', this.newDollarInputValue, this);
+        sandbox.listen('newDollarInputValue', this.newDollorInputValue, this);
+        sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
         sandbox.listen('newYenInputValue', this.newYenInputValue, this);
         sandbox.listen('newLiraInputValue', this.newLiraInputValue, this);
         sandbox.listen('newSterlinInputValue', this.newSterlinInputValue, this);
@@ -45,7 +47,7 @@
       onKeypress : function () {
         var self = this;
         setTimeout(function () {
-          var newValue = self.$euroInput[0].value;
+          var newValue = self.$danishKronInput[0].value;
           self.notify(newValue);
         }, 0);
       },
@@ -58,11 +60,32 @@
         var self = this;
         var notifiedData = data.value;
         this.notifyAjax('getNewDollarToEuroConversion', {
-          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.DOLLAR + '&to=' + sandbox.use('config').CURRENCY.EURO + '&amount=' + notifiedData,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.DOLLAR + '&to=' + sandbox.use('config').CURRENCY.KRON + '&amount=' + notifiedData,
           type : 'jsonp',
           success : function (data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['USDEUR']).format('0,0.00[0]');
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['USDDK']).format('0,0.00[0]');
+            }
+          },
+          error : function (e) {
+            console.log(e);
+          }
+        });
+      },
+
+      /**
+      * newEuroInputValue is a method to listen to the entering keys in the Euro currency input.
+      * @param <Object> data
+      */
+      newEuroInputValue : function (data) {
+        var self = this;
+        var notifiedData = data.value;
+        this.notifyAjax('getNewEuroToDollarConversion', {
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.EURO + '&to=' + sandbox.use('config').CURRENCY.KRON + '&amount=' + notifiedData,
+          type : 'jsonp',
+          success : function (data) {
+            if (!isNaN(notifiedData) && !!data.success) {
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['EURDK']).format('0,0.00[0]');
             }
           },
           error : function (e) {
@@ -79,11 +102,11 @@
         var self = this;
         var notifiedData = data.value;
         sandbox.use('$').ajax({
-          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.YEN + '&to=' + sandbox.use('config').CURRENCY.EURO + '&amount=' + notifiedData,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.YEN + '&to=' + sandbox.use('config').CURRENCY.KRON + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['JPYEUR']).format("0,0.00[0]");
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['JPYDK']).format("0,0.00[0]");
             }
           }, 
           error : function (e) {
@@ -100,11 +123,11 @@
         var self = this;
         var notifiedData = data.value;
         sandbox.use('$').ajax({
-          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.LIRA + '&to=' + sandbox.use('config').CURRENCY.EURO + '&amount=' + notifiedData,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.LIRA + '&to=' + sandbox.use('config').CURRENCY.KRON + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['TRYEUR']).format("0,0.00[0]");
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['TRYDK']).format('0,0.00[0]');
             }
           }, 
           error : function (e) {
@@ -114,41 +137,20 @@
       },
 
       /**
-      * newSterlinInputValue is a method to listen to the entering keys in the Lira currency input.
+      * newSterlinInputValue is a method to listen to the entering keys in the Sterlin currency input.
       * @param <Object> data
       */
       newSterlinInputValue : function (data) {
         var self = this;
         var notifiedData = data.value;
         sandbox.use('$').ajax({
-          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.STERLIN + '&to=' + sandbox.use('config').CURRENCY.EURO + '&amount=' + notifiedData,
+          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.STERLIN + '&to=' + sandbox.use('config').CURRENCY.KRON + '&amount=' + notifiedData,
           dataType: 'jsonp',
           success: function(data) {
             if (!isNaN(notifiedData) && !!data.success) {
-              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['GBPEUR']).format("0,0.00[0]");
+              self.$danishKronInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['GBPDK']).format('0,0.00[0]');
             }
           }, 
-          error : function (e) {
-            console.log(e);
-          }
-        });
-      },
-
-      /**
-      * newDanishKronInputValue is a method to listen to the entering keys in the Danish Kron currency input.
-      * @param <Object> data
-      */
-      newDanishKronInputValue : function (data) {
-        var self = this;
-        var notifiedData = data.value;
-        this.notifyAjax('getNewDAnishKronToEuroConversion', {
-          url : sandbox.use('config').API.URL.CONVERT + sandbox.use('config').API.ENDPOINT + '?access_key=' + sandbox.use('config').API.ACCESS_KEY + '&from=' + sandbox.use('config').CURRENCY.KRON + '&to=' + sandbox.use('config').CURRENCY.EURO + '&amount=' + notifiedData,
-          type : 'jsonp',
-          success : function (data) {
-            if (!isNaN(notifiedData) && !!data.success) {
-              self.$euroInput[0].value = sandbox.use('numeral')(parseInt(notifiedData) * data['quotes']['DKEUR']).format('0,0.00[0]');
-            }
-          },
           error : function (e) {
             console.log(e);
           }
@@ -161,7 +163,7 @@
       */
       notify : function (newValue) {
         sandbox.notify({
-          type : 'newEuroInputValue',
+          type : 'newDanishKronInputValue',
           data : {
             value : newValue
           }
@@ -188,5 +190,5 @@
 
   });
 
-})(Core);
+}) (Core);
 

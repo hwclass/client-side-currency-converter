@@ -11,7 +11,8 @@ var config = (function(){
     	EURO : 'EUR',
     	YEN : 'JPY',
       LIRA : 'TRY',
-      STERLIN : 'GBP'
+      STERLIN : 'GBP',
+      KRON : 'DK'
     },
     API : {
       ACCESS_KEY : 'acc5802f1ca9d421f6371dc247e17d90',
