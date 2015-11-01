@@ -36,6 +36,7 @@
         sandbox.listen('newEuroInputValue', this.newEuroInputValue, this);
         sandbox.listen('newYenInputValue', this.newYenInputValue, this);
         sandbox.listen('newLiraInputValue', this.newLiraInputValue, this);
+        sandbox.listen('newDanishKronInputValue', this.newDanishKronInputValue, this);
       },
 
       /**
